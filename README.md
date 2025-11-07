@@ -5,11 +5,6 @@ Website ini berfungsi untuk memperkenalkan profil perusahaan, menampilkan produk
 
 ---
 
-## Teknologi yang Digunakan
-- **Framework:** Bootstrap 5
-
----
-
 ## Pengembang
 **Fadlan Al Falah Baihaqi**  
 Majalaya - Bandung, Indonesia  
