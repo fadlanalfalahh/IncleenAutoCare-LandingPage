@@ -1,0 +1,300 @@
+
+:root {
+  --primary-color: 151 151 247;
+  --hue-color: 230;
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+  --scroll-bar-hover-color: hsl(var(--hue-color), 8%, 65%);
+}
+
+::-webkit-scrollbar {
+  background-color: var(--scroll-bar-color);
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-bar-hover-color);
+}
+
+
+/* Mengatur font default untuk seluruh konten dalam halaman */
+body {
+  font-family: 'Poppins', sans-serif;
+  /* min-height: 5000px; */
+}
+
+/* Mengatur teks rata kanan kiri */
+.text-justify {
+  text-align: justify;
+}
+
+.bg-dark {
+  background-color: black !important;
+}
+
+/* Navbar */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0); /* Transparan hitam */
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Pastikan navbar berada di atas elemen lain */
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    position: fixed; /* Ubah menjadi fixed agar navbar tetap di posisi atas saat di-scroll */
+  }
+}
+
+/* Mengatur efek hover untuk menampilkan underline */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Saat hover, munculkan underline */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Saat diklik, underline tetap muncul */
+.nav-link.active::after {
+  width: 100%;
+}
+/* Akhir Navbar */
+
+/* Jumbotron */
+#jumbotron {
+  background: url('../img/Banner_Jumbo.webp') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jumbotron .display-4 {
+  margin-top: -250px;
+  text-align: justify;
+}
+.jumbotron p {
+  margin-top: -10px;
+  margin-left: -40px;
+}
+
+/* Jumbotron untuk layar laptop */
+@media (max-width: 1024px) {
+  #jumbotron {
+    background: url('../img/Banner.webp') no-repeat center center/cover;
+  }
+  .jumbotron p {
+  margin-left: -10px;
+}
+}
+
+/* Jumbotron untuk layar tablet */
+@media (max-width: 768px) {
+  #jumbotron {
+    background: url('../img/Banner.webp') no-repeat center center/cover;
+  }
+  .jumbotron .display-4 {
+    margin-left: -7px;
+  }
+}
+
+/* Jumbotron untuk layar mobile L */
+@media (max-width: 425px) {
+  #jumbotron {
+    background: url('../img/Banner.webp') no-repeat center center;
+    background-size: contain; /* Gunakan 'contain' agar gambar sepenuhnya terlihat */
+    height: 100vh; /* Pastikan tinggi tetap penuh layar */
+    padding: 5px; /* Beri sedikit padding untuk teks */
+  }
+  .jumbotron p {
+    margin-right: -178px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 375px) {
+  .jumbotron p {
+    margin-right: -190px;
+    white-space: nowrap;
+  }
+}
+/* Akhir Jumbotron */
+
+/* Produk Kami */
+#produkKami {
+  padding-top: 2rem;
+}
+
+#imgcard {
+  overflow: hidden; /* Menghindari konten meluap dari card */
+  position: relative; /* Memungkinkan overlay pada card-body */
+  border: 2px solid black; /* Menambahkan border dengan warna hitam */
+  border-radius: 10px; /* Memberikan sedikit lengkungan di sudut-sudut */
+}
+
+.card-img-top {
+  width: 100%; /* Mengatur lebar gambar sesuai card */
+  height: 100%; /* Mengatur tinggi gambar sesuai card */
+  object-fit: contain; /* Menampilkan gambar sesuai ukuran tanpa potongan */
+}
+
+/* Mengatur gambar */
+#imgcard .card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Menambahkan transisi lebih halus */
+}
+
+/* Menyembunyikan card-body secara default di bawah */
+#imgcard .card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15%; /* Hanya 15% dari tinggi card */
+  background: white; 
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Tidak terlihat di awal */
+  transform: translateY(100%); /* Memulai dari bawah */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Transisi lebih halus */
+}
+
+/* Efek hover pada card */
+#imgcard:hover .card-img-top {
+  transform: translateY(-15%); /* Mengangkat gambar sebesar 15% */
+}
+
+#imgcard:hover .card-body {
+  opacity: 1; /* Menampilkan card-body */
+  transform: translateY(0); /* Membawa card-body ke posisi semula */
+}
+
+@media (max-width: 375px) {
+  /* Sesuaikan tombol untuk layar kecil */
+  .btn-outline-dark {
+    font-size: 12px; /* Ukuran teks lebih kecil */
+    padding: 4px 8px; /* Padding lebih kecil */
+    width: auto; /* Atur lebar otomatis */
+  }
+}
+
+@media (max-width: 425px) {
+  /* Sesuaikan tombol untuk layar kecil */
+  .btn-outline-dark {
+    font-size: 12px; /* Ukuran teks lebih kecil */
+    padding: 4px 8px; /* Padding lebih kecil */
+    width: auto; /* Atur lebar otomatis */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Sesuaikan tombol untuk layar kecil */
+  .btn-outline-dark {
+    font-size: 12px; /* Ukuran teks lebih kecil */
+    padding: 4px 8px; /* Padding lebih kecil */
+    width: auto; /* Atur lebar otomatis */
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Sesuaikan tombol untuk layar kecil */
+  .btn-outline-dark {
+    font-size: 12px; /* Ukuran teks lebih kecil */
+    padding: 4px 8px; /* Padding lebih kecil */
+    width: auto; /* Atur lebar otomatis */
+  }
+}
+
+/* Akhir Produk Kami */
+
+/* Produk Terlaris */
+#produkTerlaris {
+  padding-top: 2rem;
+}
+
+.swiper-wrapper {
+  display: flex;
+  gap: 0;
+}
+
+.card-list {
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.card-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+}
+/* Akhir Produk Terlaris */
+
+/* Tentang Kami */
+#tentangKami {
+  padding-top: 2rem;
+}
+
+.cursor {
+  display: inline-block;
+  font-weight: normal;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* Akhir Tentang Kami */
