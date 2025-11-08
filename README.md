@@ -12,5 +12,5 @@ Majalaya - Bandung, Indonesia
 
 ---
 
-> *IncleenAutoCare-LandingPage* dikembangkan sebagai representasi digital dari *Incleen Auto Care*, dengan desain yang modern, cepat diakses, dan mudah diadaptasi untuk berbagai perangkat.
+> *IncleenAutoCare-LandingPage* dikembangkan sebagai representasi digital dari *Incleen Auto Care*, dengan desain yang modern, cepat diakses, dan responsif.
 ---
